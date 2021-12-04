@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_demo1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_demo2.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_framework.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_java.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_languages.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_ot1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_ot2.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_python.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_test_avtivity.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_web_view_ot1.xml" value="0.16757246376811594" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.1490036231884058" />
+        <entry key="app/src/main/res/layout/refactor_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/register_main.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/row_item.xml" value="0.15070921985815602" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
