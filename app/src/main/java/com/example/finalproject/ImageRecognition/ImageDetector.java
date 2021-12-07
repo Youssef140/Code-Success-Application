@@ -8,8 +8,8 @@ import java.util.UUID;
 public class ImageDetector {
     private static final String EOL = "\r\n";
 
-    public int Send(String filename, String url, String method) throws IOException {
-        try (FileInputStream file = new FileInputStream(filename)) {
+    public int send(String filename, String url, String method) throws IOException {
+        try (FileInputStream file = new FileInputStream(new File(filename))) {
             HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
             final String boundary = UUID.randomUUID().toString();
             con.setDoOutput(true);
@@ -30,7 +30,7 @@ public class ImageDetector {
                 out.flush();
 
                 System.out.println(con.getResponseCode() + " " + con.getResponseMessage());
-                WriteResponse(con);
+                writeResponse(con);
 
                 return con.getResponseCode();
             } finally {
@@ -39,7 +39,7 @@ public class ImageDetector {
         }
     }
 
-        public void WriteResponse(HttpURLConnection http) {
+        public void writeResponse(HttpURLConnection http) {
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream(), "utf-8"));
 
@@ -48,7 +48,7 @@ public class ImageDetector {
                 while ((responseLine = br.readLine()) != null) {
                     response.append(responseLine.trim());
                 }
-                System.out.println(response.toString());
+                System.out.println(">>>>>>>>"+response.toString());
             } catch (Exception e) {
 
             }

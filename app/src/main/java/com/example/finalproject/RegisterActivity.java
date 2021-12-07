@@ -1,7 +1,9 @@
 package com.example.finalproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,14 +40,25 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordText.getText().toString();
         UserModel user;
 
-        if(fullName==null){
-            Toast.makeText(this,"Name Required",Toast.LENGTH_SHORT).show();
-        }
-        else if(email==null){
-            Toast.makeText(this,"Email Required",Toast.LENGTH_SHORT).show();
-        }
-        else if(password==null){
-            Toast.makeText(this,"Passwordq Required",Toast.LENGTH_SHORT).show();
+//        if(fullName==null){
+//            Toast.makeText(this,"Name Required",Toast.LENGTH_SHORT).show();
+//        }
+//        else if(email==null){
+//            Toast.makeText(this,"Email Required",Toast.LENGTH_SHORT).show();
+//        }
+//        else if(password==null){
+//            Toast.makeText(this,"Passwordq Required",Toast.LENGTH_SHORT).show();
+        if(email.isEmpty() || password.isEmpty() || password.isEmpty()){
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+            builder.setTitle("Missing Information");
+            builder.setMessage("Please fill all required information.");
+            builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.create().show();
         }
         else{
             String[] name = fullName.split("\\s");
