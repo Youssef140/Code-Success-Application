@@ -1,6 +1,9 @@
 package com.example.finalproject;
 
-public class Question {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Question implements Parcelable {
 
     //This class will contain different information such as the questions themselves
     //This class will also contain the different answer choices
@@ -27,6 +30,40 @@ public class Question {
         this.choice3 = choice3;
         this.answerNumber = answerNumber;
     }
+
+    protected Question(Parcel in) {
+        quest = in.readString();
+        choice1 = in.readString();
+        choice2 = in.readString();
+        choice3 = in.readString();
+        answerNumber = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(quest);
+        dest.writeString(choice1);
+        dest.writeString(choice2);
+        dest.writeString(choice3);
+        dest.writeInt(answerNumber);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 
     public String getQuest() {
         return quest;
