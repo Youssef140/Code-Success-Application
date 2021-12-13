@@ -15,6 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.FinalProject.NoActionBar" />
+        <activity
             android:name=".QuizzActivity2"
             android:exported="false" />
         <activity
@@ -53,9 +61,6 @@
             android:theme="@style/QuizzTheme" />
         <activity
             android:name=".Demo1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

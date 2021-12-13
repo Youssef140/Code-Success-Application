@@ -48,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void testClicked(View view){
-        Intent intent = new Intent(LoginActivity.this, Demo1Activity.class);
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
     }
+
 }
