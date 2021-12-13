@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class QuizzActivity1 extends AppCompatActivity {
 
-    //The concept of this Multiple Choice Game was inspired by a youtube channel that teaches android development (open source)
+    //Some features and concepts were inspired by a youtube channel that teaches android development
 
 
     private static final int REQUEST_CODE_QUIZ = 1;
@@ -25,7 +25,7 @@ public class QuizzActivity1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quizz1);
+        setContentView(R.layout.activity_main);
 
         textViewHighScore = findViewById(R.id.text_view_highscore);
         loadHighScore();
@@ -33,20 +33,14 @@ public class QuizzActivity1 extends AppCompatActivity {
         Button launchBtn = findViewById(R.id.button_launch_quiz);
 
         //Set listener for the action after we click the button
-        launchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchQuiz();
-            }
-        });
+        launchBtn.setOnClickListener(v -> launchQuiz());
     }
 
     private void launchQuiz(){
         //Here we want to open our second activity after we click the Launch Quiz button
         //This is done by calling Intent to perform the transitions between activities
-        Intent intent = new Intent(QuizzActivity1.this,QuizzActivity2.class);
-        startActivity(intent);
-//        startActivityForResult(intent, REQUEST_CODE_QUIZ);
+        Intent intent = new Intent(MainActivity.this,McqActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
 
     @Override
@@ -55,7 +49,7 @@ public class QuizzActivity1 extends AppCompatActivity {
 
         if(requestCode == REQUEST_CODE_QUIZ)
             if(resultCode == RESULT_OK){
-                int score = data.getIntExtra(QuizzActivity2.EXTRA_SCORE,0);
+                int score = data.getIntExtra(McqActivity.EXTRA_SCORE,0);
                 if (score>highScore){
                     updateHighScore(score);
                 }
@@ -67,12 +61,12 @@ public class QuizzActivity1 extends AppCompatActivity {
     private void loadHighScore(){
         SharedPreferences sp = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         highScore = sp.getInt(KEY_HIGHSCORE, 0);
-        textViewHighScore.setText("HighScore: " + highScore);
+        textViewHighScore.setText("High Score: " + highScore);
     }
 
     private void updateHighScore(int newestHighScore){
         highScore = newestHighScore;
-        textViewHighScore.setText("HighScore: " + highScore);
+        textViewHighScore.setText("High Score: " + highScore);
 
         //Save this value in shared preferences
 
