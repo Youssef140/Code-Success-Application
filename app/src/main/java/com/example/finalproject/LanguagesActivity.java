@@ -1,18 +1,20 @@
 package com.example.finalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finalproject.LanguagesActivities.JavaActivity;
 import com.example.finalproject.LanguagesActivities.PythonActivity;
 
-import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,19 @@ public class LanguagesActivity extends AppCompatActivity implements AdapterView.
         ArrayAdapter<String> categoriesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,categoriesList);
         languagesListView.setAdapter(categoriesAdapter);
         languagesListView.setOnItemClickListener(this);
+
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#7A9E9F"));
+
+        // Set BackgroundDrawable
+        actionBar.setBackgroundDrawable(colorDrawable);
     }
 
     @Override

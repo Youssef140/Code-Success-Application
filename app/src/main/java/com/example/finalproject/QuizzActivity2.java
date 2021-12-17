@@ -3,7 +3,12 @@ package com.example.finalproject;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -11,10 +16,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.Locale;
 
 public class QuizzActivity2 extends AppCompatActivity {
    public static final String EXTRA_SCORE = "exScore";
@@ -53,7 +60,7 @@ public class QuizzActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mcq);
+        setContentView(R.layout.activity_quizz2);
 
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_view_score);
@@ -67,12 +74,25 @@ public class QuizzActivity2 extends AppCompatActivity {
         mp = MediaPlayer.create(this,R.raw.sample);
         mp1 = MediaPlayer.create(this,R.raw.sample1);
 
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#7A9E9F"));
+
+        // Set BackgroundDrawable
+        actionBar.setBackgroundDrawable(colorDrawable);
+
         colorStateListRadioButton = radioButton1.getTextColors();//save the default color in colorStateListRadioButtonRadioButton
         colorStateListCountDown = countDown.getTextColors();
 
         if(savedInstanceState == null){
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
-        questionList = dataBaseHelper.getQuestions();
+        questionList = (ArrayList<Question>) dataBaseHelper.getQuestions();
         questCountTotal = questionList.size();
         //shuffle question list to get questions in a random order
         Collections.shuffle(questionList);
@@ -109,7 +129,7 @@ public class QuizzActivity2 extends AppCompatActivity {
                         checkSelectedAnswer();
                     } else {
                         //if no radio button is selected show toast message
-                        Toast.makeText(McqActivity.this, "No selected answer, Please select one of the previous choices", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QuizzActivity2.this, "No selected answer, Please select one of the previous choices", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     //if question was already answered show next question
@@ -275,4 +295,12 @@ public class QuizzActivity2 extends AppCompatActivity {
         outState.putBoolean(ANSWERED,isAnswered);
         outState.putParcelableArrayList(QUESTION_LIST,questionList);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.mainmenu,menu);
+        return true;
+    }
+
 }

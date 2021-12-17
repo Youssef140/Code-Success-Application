@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">Code Success</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Quiz</string>
+    <string name="tab_text_2">Demos</string>
+    <string name="tab_text_3">Tutorials</string>
 </resources>

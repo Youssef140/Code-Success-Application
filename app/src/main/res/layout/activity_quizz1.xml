@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="Test your knowledge"
-        android:textColor="@color/black"
+        android:textColor="@color/back3"
         android:textSize="35sp" />
 
     <TextView

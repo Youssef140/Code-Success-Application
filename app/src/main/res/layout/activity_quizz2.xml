@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score: 0"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/back3" />
 
     <TextView
         android:id="@+id/text_view_questionCount"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_score"
         android:text="Question: 1/x"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/back3" />
 
     <TextView
         android:id="@+id/text_view_timer"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:text="00:20"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/holo_red_light"
         android:textSize="35sp" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginBottom="16dp"
         android:text="This is the first question"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/back3"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -49,6 +49,7 @@
 
         <RadioButton
             android:id="@+id/radio_button_choice1"
+            android:textColor="@color/back3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choice 1" />
@@ -57,12 +58,14 @@
             android:id="@+id/radio_button_choice2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/back3"
             android:text="Choice 2" />
 
         <RadioButton
             android:id="@+id/radio_button_choice3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/back3"
             android:text="Choice 3" />
 
 
